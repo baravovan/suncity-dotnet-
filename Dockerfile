@@ -4,7 +4,6 @@ WORKDIR /source
 COPY *.sln .
 
 COPY MvcSunCity/*.csproj ./app/
-WORKDIR app
 RUN dotnet restore
 COPY MvcSunCity/. ./app/
 
