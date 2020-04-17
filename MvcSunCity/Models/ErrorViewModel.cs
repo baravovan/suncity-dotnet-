@@ -1,5 +1,3 @@
-using System;
-
 namespace MvcSunCity.Models
 {
     public class ErrorViewModel

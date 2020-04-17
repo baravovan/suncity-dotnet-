@@ -1,9 +1,9 @@
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using MvcSunCity.Models;
 
 namespace MvcSunCity.Data
 {
-    public class MvcSunCityContext : DbContext
+    public class MvcSunCityContext : IdentityDbContext
     {
         public MvcSunCityContext (DbContextOptions<MvcSunCityContext> options)
             : base(options)

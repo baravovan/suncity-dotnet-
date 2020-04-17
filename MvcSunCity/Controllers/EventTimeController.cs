@@ -1,36 +1,15 @@
 using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using MvcSunCity;
 using MvcSunCity.Data;
+using MvcSunCity.Services;
 
 namespace MvcSunCity.Controllers
 {
-    public static class SunService
-    {
-        private static readonly HttpClient client = new HttpClient();
-        
-        public static async System.Threading.Tasks.Task<string> GetDataFromServer(string lattitude, string longitude, string date)
-        {
-            StringBuilder sb = new StringBuilder("https://api.sunrise-sunset.org/json?")
-            .Append("lat=" + lattitude)
-            .Append("&lng=" + longitude)
-            .Append("&date=" + date);
-
-            UriBuilder builder = new UriBuilder(sb.ToString());
-            client.DefaultRequestHeaders.Accept.Clear();
-            var result = client.GetStringAsync(builder.Uri);
-            var msg = await result;
-            return msg ;
-        }
-    }
-    
+    [Authorize]
     public class EventTimeController : Controller
     {
         private readonly MvcSunCityContext _context;

@@ -1,5 +1,3 @@
-using System;
-
 namespace MvcSunCity
 {
     public class CityInfo

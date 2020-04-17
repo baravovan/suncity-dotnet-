@@ -1,20 +1,19 @@
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using MvcSunCity;
 using MvcSunCity.Data;
 
 namespace MvcSunCity.Controllers
 {
+    [Authorize]
     public class CitiesController : Controller
     {
         private readonly MvcSunCityContext _context;
 
-        public CitiesController(MvcSunCityContext context)
+        public CitiesController(
+            MvcSunCityContext context)
         {
             _context = context;
         }
